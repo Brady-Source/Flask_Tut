@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% block title %}Flasky - New User Registration{% endblock %}
+
+{% block page_content %}
+
+<div class= "container">
+
+    <div class= "page-header">
+        <h1>Welcome to Advancing AI!</h1>
+    </div>
+    <form method="POST" action="">
+        {{ form.hidden_tag() }} 
+        
+        <div>
+            {{ form.username.label }}<br>
+            {{ form.username(rows=4, cols=50) }}
+            {% if form.username.errors %}
+                {% for error in form.username.errors %}
+                    <span style="color: red;">{{ error }}</span>
+                {{ m }}
+                {% endfor %}
+            {% endif %}
+            {{ form.email.label }}<br>
+            {{ form.email(rows=4, cols=50) }}
+            {% if form.email.errors %}
+                {% for error in form.email.errors %}
+                    <span style="color: red;">{{ error }}</span>
+                {{ m }}
+                {% endfor %}
+            {% endif %}
+            {{ form.home_address.label }}<br>
+            {{ form.home_address(rows=4, cols=50) }}
+            {% if form.home_address.errors %}
+                {% for error in form.home_address.errors %}
+                    <span style="color: red;">{{ error }}</span>
+                {{ m }}
+                {% endfor %}
+            {% endif %}
+            {{ form.city.label }}<br>
+            {{ form.city(rows=4, cols=50) }}
+            {% if form.city.errors %}
+                {% for error in form.city.errors %}
+                    <span style="color: red;">{{ error }}</span>
+                {{ m }}
+                {% endfor %}
+            {% endif %}
+            {{ form.state.label }}<br>
+            {{ form.state(rows=4, cols=50) }}
+            {% if form.state.errors %}
+                {% for error in form.state.errors %}
+                    <span style="color: red;">{{ error }}</span>
+                {{ m }}
+                {% endfor %}
+            {% endif %}
+            {{ form.zip_code.label }}<br>
+            {{ form.zip_code(rows=4, cols=50) }}
+            {% if form.zip_code.errors %}
+                {% for error in form.zip_code.errors %}
+                    <span style="color: red;">{{ error }}</span>
+                {{ m }}
+                {% endfor %}
+            {% endif %}
+            {{ form.password.label }}<br>
+            {{ form.password(rows=4, cols=50) }}
+            {% if form.password.errors %}
+                {% for error in form.password.errors %}
+                    <span style="color: red;">{{ error }}</span>
+                {{ m }}
+                {% endfor %}
+            {% endif %}
+            {{ form.password2.label }}<br>
+            {{ form.password2(rows=4, cols=50) }}
+            {% if form.password2.errors %}
+                {% for error in form.password2.errors %}
+                    <span style="color: red;">{{ error }}</span>
+                {{ m }}
+                {% endfor %}
+            {% endif %}
+        </div>
+        
+        <p>{{ form.submit() }}</p>
+    </form>
+
+
+
+</div>
+
+{% endblock page_content %}
