@@ -1,4 +1,5 @@
 import os
+import re
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -40,7 +41,11 @@ class DevelopmentConfig(config):
 
 class ProductionConfig(config):
     DEBUG = False
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or 'sqlite:///' + os.path.join(basedir, 'data.sqlite')
+    SQLALCHEMY_DATABASE_URI = re.sub(
+        r'^postgres://', 
+        'postgresql://', 
+        os.environ.get('DATABASE_URL', 'sqlite:///data.sqlite')
+    )
 
 class TestingConfig(config):
     TESTING = True
