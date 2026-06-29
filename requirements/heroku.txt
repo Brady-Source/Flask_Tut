@@ -22,3 +22,4 @@ faker
 psycopg2
 flask-sslify
 markdown
+bleach
