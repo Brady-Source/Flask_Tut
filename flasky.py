@@ -20,9 +20,12 @@ migrate = Migrate(app, db)
 @app.cli.command()
 @click.option('--length', default=20)
 def profile(length):
-    profile_dir = Path(
-        r"C:\Users\dawns\OneDrive\Documents\College\CSCI335 Web Applications Programming\Flask_Tut\profile_dir"
-    )
+    """Start the application under the code profiler."""
+    if app.config.get('FLASK_CONFIG') == 'heroku':
+        print("Profiling is not available in production.")
+        return
+
+    profile_dir = Path('./profile_dir')
     profile_dir.mkdir(parents=True, exist_ok=True)
 
     app.wsgi_app = ProfilerMiddleware(
