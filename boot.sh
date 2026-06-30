@@ -1,5 +1,4 @@
 #!/bin/bash
-sed -i 's/\r//' boot.sh
 . venv/bin/activate
 
 while true; do
