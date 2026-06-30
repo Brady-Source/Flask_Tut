@@ -1,4 +1,4 @@
-FROM python:3.6-alpine
+FROM python:3.11-alpine
 
 ENV FLASK_APP=flasky.py
 ENV FLASK_CONFIG=docker
@@ -15,7 +15,7 @@ RUN venv/bin/pip install -r requirements/docker.txt
 COPY app app
 COPY migrations migrations
 COPY flasky.py config.py boot.sh ./
+RUN chmod +x boot.sh
 
-# runtime configuration
 EXPOSE 5000
-ENTRYPOINT ["boot.sh"]
+ENTRYPOINT ["./boot.sh"]
